@@ -1,33 +1,8 @@
 clc;
 clear all;
 global Dij dij i_data k_num m_num k_load m_load time_window f_load I1_data I2_data I3_data v_k v_f v_m u U nodeij I1 I2 I3 lamda s_i;
-i_data = xlsread('data/i_data.xlsx');
-nodeij = xlsread('data/nodeij.xlsx');
-for i = 1:1:size(nodeij,1)
-    for j = 1:1:size(nodeij,1)
-        dij(i,j) = sqrt(power(nodeij(i,1)-nodeij(j,1),2)+power(nodeij(i,2)-nodeij(j,2),2))*500;
-    end
-end
-I1_data = i_data(:,1:25);
-I2_data = i_data(:,26:45);
-I3_data = i_data(:,46:50);
-I1 = [1:25];
-I2 = [26:45];
-I3 = [46:50];
-Dij = dij;
-time_window = i_data(3:5,:);
-k_num = 2;
-k_load = 300;
-m_num = 4;
-m_load = 30;
-f_load = 5;
-v_k = 900;
-v_m = 1200;
-v_f = 1500;
-u = 1/3;
-U = 1/3;
-lamda = 30000;
-s_i = 0.5;
+
+load data.mat
 initialRoute = initial_population(1);
 while size(initialRoute{k_num+m_num+1},1) ~= 0
     initialRoute = initial_population(1);
