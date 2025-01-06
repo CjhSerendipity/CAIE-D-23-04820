@@ -63,9 +63,9 @@ for t = 1:maxT
     elseif choice_insert_index == 3
         newRoute = Insertion_Operator(newRoute,delete_route,3);
     end
-    newRoute = repair_all_route(newRoute);
+    newRoute = RRoute(newRoute);
     Result = CalTime(newRoute);
-    newRoute = repair_(newRoute,Result.illegalI);
+    newRoute = adjust(newRoute,Result.illegalI);
     Result = CalTime(newRoute);
     newTime = Result.alltime;
     if newTime < bestTime
