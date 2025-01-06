@@ -104,5 +104,5 @@ function [time] = CalRouteTime(Route,k)
             end
         end
     end
-    time = t_km + size(illegalI,2)*1000;
+    time = t_km + size(illegalI,2)*100;
 end
