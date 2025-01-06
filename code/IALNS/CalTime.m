@@ -151,6 +151,6 @@ function [Result] = CalTime(InitialRoute)
     Result.timeAnum = [TT,TDT,DDT,MDT,TDCT,TDN,DDN,MDN];
     Result.illegalI = illegalI;
     if size(InitialRoute{1,k_num+m_num+1},2) ~= 0  || size(illegalI,2) > 0
-        Result.alltime = Result.alltime + size(illegalI,2)*1000+ size(InitialRoute{1,k_num+m_num+1},2)*1000;
+        Result.alltime = Result.alltime + size(illegalI,2)*1000+ size(InitialRoute{1,k_num+m_num+1},2)*100;
     end
 end
